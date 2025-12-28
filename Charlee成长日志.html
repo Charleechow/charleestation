@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <!-- SEO核心配置 -->
+    <title>Charlee小站 - 英语学习/留学/求职公益资源分享平台</title>
+    <meta name="description" content="Charlee小站免费分享优质英语学习工具、留学申请攻略、求职实用网址，公益无广告，欢迎留言推荐更多有用资源！">
+    <meta name="keywords" content="Charlee小站,英语学习工具,留学资源,求职网址,免费学习资源">
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;list-style:none;text-decoration:none;}
+        body {background-color:#FCFAF8;color:#4A3F35;font-family:"Source Han Serif CN","Montserrat",sans-serif;letter-spacing:0.5px;display:flex;min-height:100vh;}
+        /* 左侧菜单响应式 */
+        .left-menu {width:260px;background-color:#F0EAE4;padding:40px 20px;position:fixed;height:100vh;overflow-y:auto;box-shadow:0 0 10px rgba(0,0,0,0.03);}
+        .site-title {font-size:22px;font-weight:bold;color:#4A3F35;margin-bottom:40px;padding-bottom:10px;border-bottom:1px solid #B4C0CC;text-align:center;}
+        .first-level-menu {margin-bottom:25px;}
+        .first-level-menu > .menu-title {font-size:16px;font-weight:bold;color:#4A3F35;margin-bottom:12px;display:flex;align-items:center;}
+        .second-level-menu {padding-left:10px;}
+        .second-level-menu > li {margin-bottom:8px;}
+        .second-level-menu > li > a {font-size:14px;color:#695E54;display:block;padding:6px 8px;border-radius:6px;transition:all 0.3s ease;}
+        .second-level-menu > li > a.active,.second-level-menu > li > a:hover {background-color:#D1BFB7;color:#4A3F35;box-shadow:0 1px 3px rgba(0,0,0,0.05);}
+        /* 右侧内容响应式 */
+        .right-content {flex:1;margin-left:260px;padding:50px;min-width:0;scroll-padding-top:20px;}
+        .first-level-title {font-size:28px;font-weight:bold;color:#4A3F35;margin:60px 0 30px 0;padding-bottom:15px;border-bottom:2px solid #B4C0CC;}
+        .first-level-title:first-of-type {margin-top:0;}
+        .content-section {margin-bottom:40px;}
+        .content-title {font-size:20px;font-weight:bold;color:#4A3F35;margin-bottom:25px;padding-bottom:10px;border-bottom:1px solid #B4C0CC;}
+        /* 卡片网格响应式 */
+        .card-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+        .resource-card {background-color:#FCFAF8;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,0.06);padding:18px;transition:all 0.3s ease;display:flex;align-items:flex-start;gap:12px;}
+        .resource-card:hover {background-color:#F8EFD8;transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,0.09);}
+        .card-icon {width:40px;height:40px;border-radius:8px;background-color:#F0EAE4;display:flex;align-items:center;justify-content:center;color:#4A3F35;font-size:20px;}
+        .card-info {flex:1;}
+        .card-info-title {font-size:15px;font-weight:bold;color:#4A3F35;margin-bottom:4px;}
+        .card-info-desc {font-size:13px;color:#695E54;line-height:1.5;margin-bottom:8px;}
+        .card-info-link {font-size:12px;color:#8A9FC0;text-decoration:underline;}
+        .card-info-link:hover {color:#6B87B0;}
+        /* 网站说明（不可编辑） */
+        .site-desc {background-color:#FCFAF8;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,0.06);padding:25px;min-height:200px;outline:none;line-height:1.8;}
+        /* 留言板（可编辑） */
+        .public-editable {background-color:#FCFAF8;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,0.06);padding:25px;min-height:200px;outline:none;transition:all 0.3s ease;line-height:1.8;}
+        .public-editable:hover {background-color:#F8EFD8;box-shadow:0 5px 15px rgba(0,0,0,0.09);}
+        /* 其他可编辑区域 */
+        .creator-editable {background-color:#FCFAF8;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,0.06);padding:25px;min-height:200px;outline:none;transition:all 0.3s ease;line-height:1.8;}
+        .creator-editable:hover {background-color:#F8EFD8;box-shadow:0 5px 15px rgba(0,0,0,0.09);}
+        /* 移动端适配（768px以下设备） */
+        @media (max-width:768px) {
+            .left-menu {position:relative;width:100%;height:auto;margin-bottom:20px;}
+            .right-content {margin-left:0;padding:20px;}
+            .card-grid {grid-template-columns:1fr;}
+            .first-level-title {font-size:24px;margin:30px 0 20px 0;}
+            .content-title {font-size:18px;margin-bottom:15px;}
+            .site-desc,.public-editable,.creator-editable {padding:20px;min-height:150px;}
+        }
+    </style>
+</head>
+<body>
+    <!-- 左侧导航栏 -->
+    <div class="left-menu">
+        <div class="site-title">Charlee Zhou的成长日志</div>
+        <!-- 英语学习 -->
+        <div class="first-level-menu">
+            <div class="menu-title">英语学习</div>
+            <ul class="second-level-menu">
+                <li><a href="#vocab" class="active">词汇积累</a></li>
+                <li><a href="#listen-speak">听说训练</a></li>
+                <li><a href="#read-write">读写提升</a></li>
+                <li><a href="#movie-enjoy">影视享受</a></li>
+            </ul>
+        </div>
+        <!-- 留学生活 -->
+        <div class="first-level-menu">
+            <div class="menu-title">留学生活</div>
+            <ul class="second-level-menu">
+                <li><a href="#apply">申请准备</a></li>
+                <li><a href="#overseas-study">海外学习</a></li>
+                <li><a href="#culture-adapt">文化适应</a></li>
+            </ul>
+        </div>
+        <!-- 职业成长 -->
+        <div class="first-level-menu">
+            <div class="menu-title">职业成长</div>
+            <ul class="second-level-menu">
+                <li><a href="#job-url">求职网址</a></li>
+                <li><a href="#skill-learn">技能学习</a></li>
+                <li><a href="#job-experience">求职经验</a></li>
+            </ul>
+        </div>
+        <!-- 生活分享 -->
+        <div class="first-level-menu">
+            <div class="menu-title">生活分享</div>
+            <ul class="second-level-menu">
+                <li><a href="#daily">日常碎片</a></li>
+                <li><a href="#travel">旅行见闻</a></li>
+                <li><a href="#recommend">好物推荐</a></li>
+            </ul>
+        </div>
+        <!-- 辅助资料 -->
+        <div class="first-level-menu">
+            <div class="menu-title">辅助资料</div>
+            <ul class="second-level-menu">
+                <li><a href="#useful-tools">好用的工具</a></li>
+            </ul>
+        </div>
+        <!-- 关于本站 -->
+        <div class="first-level-menu">
+            <div class="menu-title">关于本站</div>
+            <ul class="second-level-menu">
+                <li><a href="#site-intro">网站说明</a></li>
+                <li><a href="#message">留言板</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 右侧主内容区 -->
+    <div class="right-content">
+        <!-- 英语学习板块 -->
+        <h2 class="first-level-title">英语学习</h2>
+        <div class="content-section" id="vocab">
+            <div class="content-title">词汇积累</div>
+            <div class="card-grid">
+                <div class="resource-card">
+                    <div class="card-icon">📚</div>
+                    <div class="card-info">
+                        <div class="card-info-title">韦氏词典</div>
+                        <div class="card-info-desc">提供单词词源、例句及同义词辨析，帮你深入理解单词用法，提升词汇量</div>
+                        <a href="https://www.merriam-webster.com/" target="_blank" class="card-info-link">点击访问韦氏词典</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🔊</div>
+                    <div class="card-info">
+                        <div class="card-info-title">剑桥词典</div>
+                        <div class="card-info-desc">支持英/美双音真人发音，搭配场景化例句，快速掌握单词发音和使用场景</div>
+                        <a href="https://dictionary.cambridge.org/" target="_blank" class="card-info-link">点击访问剑桥词典</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🔍</div>
+                    <div class="card-info">
+                        <div class="card-info-title">Let Me English</div>
+                        <div class="card-info-desc">涵盖词汇、语法、听力等多模块的优质英语学习平台，系统化提升英语能力</div>
+                        <a href="https://letmeenglish.com/" target="_blank" class="card-info-link">点击访问Let Me English</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">📖</div>
+                    <div class="card-info">
+                        <div class="card-info-title">100 wordstory</div>
+                        <div class="card-info-desc">短篇故事分享平台，通过100词以内的小故事积累词汇、提升阅读语感</div>
+                        <a href="https://100wordstory.org/" target="_blank" class="card-info-link">点击访问100 wordstory</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="listen-speak">
+            <div class="content-title">听说训练</div>
+            <div class="card-grid">
+                <div class="resource-card">
+                    <div class="card-icon">🎧</div>
+                    <div class="card-info">
+                        <div class="card-info-title">BBC 6 Minute English</div>
+                        <div class="card-info-desc">6分钟短篇听力栏目，覆盖各类日常话题，配套精听/跟读训练，积累高频词汇</div>
+                        <a href="https://www.bbc.co.uk/learningenglish/english/features/6-minute-english" target="_blank" class="card-info-link">访问BBC听力页面</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">📻</div>
+                    <div class="card-info">
+                        <div class="card-info-title">National Public Radio</div>
+                        <div class="card-info-desc">美国公共广播电台，多类型新闻/访谈类听力素材，锻炼美式英语听力能力</div>
+                        <a href="https://www.npr.org/" target="_blank" class="card-info-link">访问National Public Radio</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">📚</div>
+                    <div class="card-info">
+                        <div class="card-info-title">Loyalbooks</div>
+                        <div class="card-info-desc">免费有声书平台，涵盖经典文学、童话等内容，泛听训练提升听力理解能力</div>
+                        <a href="https://www.loyalbooks.com/" target="_blank" class="card-info-link">访问Loyalbooks</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🗞️</div>
+                    <div class="card-info">
+                        <div class="card-info-title">VOA英语新闻</div>
+                        <div class="card-info-desc">美国之音英语新闻，提供慢速/常速双版本，配套文本，适合听力入门到进阶</div>
+                        <a href="https://www.voanews.com/learning-english" target="_blank" class="card-info-link">访问VOA英语新闻</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🎶</div>
+                    <div class="card-info">
+                        <div class="card-info-title">Radiostay</div>
+                        <div class="card-info-desc">多语种广播聚合平台，可收听各国电台节目，提升听力环境适应能力</div>
+                        <a href="https://radiostay.com/" target="_blank" class="card-info-link">访问Radiostay</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">📰</div>
+                    <div class="card-info">
+                        <div class="card-info-title">Engoo Daily News</div>
+                        <div class="card-info-desc">每日更新简易英语新闻，配有声朗读和词汇注释，适合初学者听力练习</div>
+                        <a href="https://engoo.com/app/daily-news" target="_blank" class="card-info-link">访问Engoo Daily News</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="read-write">
+            <div class="content-title">读写提升</div>
+            <div class="card-grid">
+                <div class="resource-card">
+                    <div class="card-icon">📚</div>
+                    <div class="card-info">
+                        <div class="card-info-title">安娜档案</div>
+                        <div class="card-info-desc">免费电子书检索平台，海量英文原版书籍，拓展阅读素材库，提升阅读能力</div>
+                        <a href="https://annas-archive.org/" target="_blank" class="card-info-link">访问安娜档案</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">📖</div>
+                    <div class="card-info">
+                        <div class="card-info-title">MGReader</div>
+                        <div class="card-info-desc">英文分级阅读平台，按难度分类书籍，适配不同阅读水平，稳步提升阅读能力</div>
+                        <a href="https://mgreader.com/" target="_blank" class="card-info-link">访问MGReader</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🗞️</div>
+                    <div class="card-info">
+                        <div class="card-info-title">MAGAZINELIB</div>
+                        <div class="card-info-desc">英文杂志免费下载平台，涵盖时尚/财经/科技等领域，拓宽阅读视野</div>
+                        <a href="https://magazinelib.com/" target="_blank" class="card-info-link">访问MAGAZINELIB</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">📱</div>
+                    <div class="card-info">
+                        <div class="card-info-title">English e-Reader</div>
+                        <div class="card-info-desc">英文电子书阅读平台，支持在线阅读/下载，适配多种设备，方便碎片化阅读</div>
+                        <a href="https://english-e-reader.com/" target="_blank" class="card-info-link">访问English e-Reader</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">💬</div>
+                    <div class="card-info">
+                        <div class="card-info-title">Buzzing</div>
+                        <div class="card-info-desc">英文热点资讯平台，覆盖生活/文化等内容，提升读写与时事认知能力</div>
+                        <a href="https://buzzing.cc/" target="_blank" class="card-info-link">访问Buzzing</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">📰</div>
+                    <div class="card-info">
+                        <div class="card-info-title">China Daily</div>
+                        <div class="card-info-desc">中国日报英文网，中英双语资讯，适合提升读写同时了解国内国际动态</div>
+                        <a href="https://www.chinadaily.com.cn/" target="_blank" class="card-info-link">访问China Daily</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🔤</div>
+                    <div class="card-info">
+                        <div class="card-info-title">EsI Bits</div>
+                        <div class="card-info-desc">英文学习素材平台，提供读写练习题库与范文，针对性提升读写技巧</div>
+                        <a href="https://eslbits.com/" target="_blank" class="card-info-link">访问EsI Bits</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🔍</div>
+                    <div class="card-info">
+                        <div class="card-info-title">Find a Book</div>
+                        <div class="card-info-desc">英文书籍推荐平台，按阅读水平筛选书籍，精准匹配阅读需求</div>
+                        <a href="https://findabook.org/" target="_blank" class="card-info-link">访问Find a Book</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="movie-enjoy">
+            <div class="content-title">影视享受</div>
+            <div class="card-grid">
+                <div class="resource-card">
+                    <div class="card-icon">🎬</div>
+                    <div class="card-info">
+                        <div class="card-info-title">Bitcine</div>
+                        <div class="card-info-desc">免费影视资源平台，海量英文原版影视作品，沉浸式提升英语语感</div>
+                        <a href="https://bitcine.com/" target="_blank" class="card-info-link">访问Bitcine</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🎞️</div>
+                    <div class="card-info">
+                        <div class="card-info-title">Cineby</div>
+                        <div class="card-info-desc">高清影视资源平台，支持中英文字幕切换，边看边学提升听力口语</div>
+                        <a href="https://cineby.com/" target="_blank" class="card-info-link">访问Cineby</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">📺</div>
+                    <div class="card-info">
+                        <div class="card-info-title">MyFlixer</div>
+                        <div class="card-info-desc">热门影视聚合平台，免费观看英文影视，锻炼听说能力</div>
+                        <a href="https://myflixer.to/" target="_blank" class="card-info-link">访问MyFlixer</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🎥</div>
+                    <div class="card-info">
+                        <div class="card-info-title">KimiVod</div>
+                        <div class="card-info-desc">影视资源分享平台，支持下载/在线观看，适配英语学习场景</div>
+                        <a href="https://kimivod.com/" target="_blank" class="card-info-link">访问KimiVod</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 留学生活板块 -->
+        <h2 class="first-level-title">留学生活</h2>
+        <div class="content-section" id="apply">
+            <div class="content-title">申请准备</div>
+            <div class="creator-editable" contenteditable="true">
+                ### 留学申请核心准备清单
+                1. 语言成绩：托福/雅思/PTE等，根据目标院校要求准备，建议提前6-12个月备考；
+                2. 学术成绩：GPA成绩单、排名证明，部分院校需WES认证；
+                3. 文书材料：个人陈述（PS）、推荐信（2-3封）、简历（CV），突出个人优势与申请动机；
+                4. 标准化考试：商科需GMAT，理工科需GRE，部分院校可豁免；
+                5. 其他：护照、存款证明、获奖证书、实习/科研经历证明等。
+                <br><br>
+                可留言分享你整理的申请攻略或踩坑经验~
+            </div>
+        </div>
+
+        <div class="content-section" id="overseas-study">
+            <div class="content-title">海外学习</div>
+            <div class="creator-editable" contenteditable="true">
+                ### 海外学习实用建议
+                1. 选课技巧：优先选适配自身基础的课程，利用学校选课系统查看课程评价，平衡难易度；
+                2. 学术写作：熟悉APA/MLA/Harvard等引用格式，使用Grammarly、Turnitin辅助查重和语法检查；
+                3. 资源利用：充分使用学校图书馆、数据库（JSTOR、IEEE Xplore等）、教授Office Hour；
+                4. 文化适应：主动参与校园社团、跨文化交流活动，快速融入当地学习生活。
+                <br><br>
+                欢迎分享你的海外学习心得！
+            </div>
+        </div>
+
+        <div class="content-section" id="culture-adapt">
+            <div class="content-title">文化适应</div>
+            <div class="creator-editable" contenteditable="true">
+                ### 跨文化适应小技巧
+                1. 沟通方式：海外注重直接沟通，表达观点时清晰明确，尊重不同的文化习惯；
+                2. 生活细节：了解当地礼仪（如小费文化、公共场合礼仪），提前熟悉交通、医疗等基础服务；
+                3. 心理调节：初期适应期可能有孤独感，可加入华人社群、留学生组织，也可寻求学校心理咨询服务；
+                4. 安全意识：了解当地治安情况，保管好个人证件和财物，熟记紧急联系电话。
+                <br><br>
+                你有哪些文化适应的小故事？欢迎留言分享~
+            </div>
+        </div>
+
+        <!-- 职业成长板块 -->
+        <h2 class="first-level-title">职业成长</h2>
+        <div class="content-section" id="job-url">
+            <div class="content-title">求职网址</div>
+            <div class="card-grid">
+                <div class="resource-card">
+                    <div class="card-icon">🔗</div>
+                    <div class="card-info">
+                        <div class="card-info-title">Linkedin领英</div>
+                        <div class="card-info-desc">全球职场社交平台，可拓展人脉、投递海外职位、查看企业招聘信息</div>
+                        <a href="https://www.linkedin.com/" target="_blank" class="card-info-link">点击访问Linkedin</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🔗</div>
+                    <div class="card-info">
+                        <div class="card-info-title">Indeed</div>
+                        <div class="card-info-desc">全球知名求职平台，覆盖全职/兼职/实习岗位，支持多国家/地区筛选</div>
+                        <a href="https://www.indeed.com/" target="_blank" class="card-info-link">点击访问Indeed</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🔗</div>
+                    <div class="card-info">
+                        <div class="card-info-title">猎聘</div>
+                        <div class="card-info-desc">国内高端求职平台，覆盖金融/科技/互联网等行业，适合中高端职位求职</div>
+                        <a href="https://www.liepin.com/" target="_blank" class="card-info-link">点击访问猎聘</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="skill-learn">
+            <div class="content-title">技能学习</div>
+            <div class="card-grid">
+                <div class="resource-card">
+                    <div class="card-icon">🤖</div>
+                    <div class="card-info">
+                        <div class="card-info-title">ChatGPT</div>
+                        <div class="card-info-desc">智能AI助手，可辅助文案创作、代码编写、学习答疑，提升效率</div>
+                        <a href="https://chat.openai.com/" target="_blank" class="card-info-link">点击访问ChatGPT</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🤖</div>
+                    <div class="card-info">
+                        <div class="card-info-title">Deepseek</div>
+                        <div class="card-info-desc">国产高性能AI，专注代码编写、学术研究，支持多语言交互</div>
+                        <a href="https://www.deepseek.com/" target="_blank" class="card-info-link">点击访问Deepseek</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🤖</div>
+                    <div class="card-info">
+                        <div class="card-info-title">问小白</div>
+                        <div class="card-info-desc">实用AI工具，提供通俗易懂的知识解答与技能指导，适合入门学习</div>
+                        <a href="https://www.wenxiaobai.com/" target="_blank" class="card-info-link">点击访问问小白</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🤖</div>
+                    <div class="card-info">
+                        <div class="card-info-title">豆包</div>
+                        <div class="card-info-desc">字节跳动出品AI，支持学习答疑、文案创作、职业规划等多场景</div>
+                        <a href="https://www.doubao.com/" target="_blank" class="card-info-link">点击访问豆包</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🎓</div>
+                    <div class="card-info">
+                        <div class="card-info-title">Coursera</div>
+                        <div class="card-info-desc">全球在线教育平台，提供顶尖高校课程，可考取证书，提升职业竞争力</div>
+                        <a href="https://www.coursera.org/" target="_blank" class="card-info-link">点击访问Coursera</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="job-experience">
+            <div class="content-title">求职经验</div>
+            <div class="creator-editable" contenteditable="true">
+                ### 通用求职经验分享
+                1. 简历优化：突出核心技能与量化成果（如“提升效率20%”“完成10+项目”），适配目标岗位关键词；
+                2. 面试准备：梳理STAR法则案例（情境-任务-行动-结果），提前调研公司业务和岗位要求；
+                3. 海外求职：关注签证政策（如OPT/H1B），利用学校Career Center资源，参与校招宣讲会；
+                4. 国内求职：熟悉秋招/春招时间线，多平台投递（BOSS直聘、智联、前程无忧），重视内推渠道。
+                <br><br>
+                欢迎留言分享你的求职成功案例或踩坑经验！
+            </div>
+        </div>
+
+        <!-- 生活分享板块 -->
+        <h2 class="first-level-title">生活分享</h2>
+        <div class="content-section" id="daily">
+            <div class="content-title">日常碎片</div>
+            <div class="creator-editable" contenteditable="true">
+                ### 生活小美好
+                这里可以记录日常的小确幸：比如发现的宝藏咖啡店、高效的时间管理方法、治愈的书单/影单，或是简单的生活感悟。
+                <br><br>
+                示例：
+                ✨ 今日分享：用Notion搭建个人学习台账，清晰记录每日学习进度，效率提升超预期！
+                ✨ 好物推荐：便携保温杯，适合通勤/学习时喝热水，提升幸福感～
+                <br><br>
+                快来分享你的日常吧！
+            </div>
+        </div>
+
+        <div class="content-section" id="travel">
+            <div class="content-title">旅行见闻</div>
+            <div class="creator-editable" contenteditable="true">
+                ### 旅行感悟与攻略
+                记录你的旅行足迹：小众目的地推荐、避坑指南、当地美食/文化体验，或是旅行中的成长与思考。
+                <br><br>
+                示例：
+                📍 目的地：清迈
+                攻略：避开网红景点，去宁曼路的小巷探索本地咖啡馆，周末夜市的芒果糯米饭超好吃！
+                感悟：慢节奏的生活能让人更专注感受当下～
+                <br><br>
+                你的旅行故事，值得被记录～
+            </div>
+        </div>
+
+        <div class="content-section" id="recommend">
+            <div class="content-title">好物推荐</div>
+            <div class="creator-editable" contenteditable="true">
+                ### 实用好物清单
+                分享提升学习/生活效率的好物，涵盖数码产品、文具、书籍、APP等。
+                <br><br>
+                示例：
+                1. 数码类：iPad + Apple Pencil，记笔记/看网课超方便，搭配GoodNotes软件体验拉满；
+                2. 文具类：国誉活页本，纸张顺滑，可拆卸内页，适合整理学习笔记；
+                3. APP类：Forest专注森林，戒掉手机依赖，提升专注力；
+                4. 书籍类：《原子习惯》，手把手教你养成微习惯，量变积累质变。
+                <br><br>
+                欢迎补充你的宝藏好物！
+            </div>
+        </div>
+
+        <!-- 辅助资料板块 -->
+        <h2 class="first-level-title">辅助资料</h2>
+        <div class="content-section" id="useful-tools">
+            <div class="content-title">好用的工具</div>
+            <div class="card-grid">
+                <div class="resource-card">
+                    <div class="card-icon">📄</div>
+                    <div class="card-info">
+                        <div class="card-info-title">I Love PDF</div>
+                        <div class="card-info-desc">全能PDF处理工具，支持合并/拆分/压缩/转换格式，免费无广告</div>
+                        <a href="https://www.ilovepdf.com/" target="_blank" class="card-info-link">点击访问I Love PDF</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🎤</div>
+                    <div class="card-info">
+                        <div class="card-info-title">FluentDictation</div>
+                        <div class="card-info-desc">流利听写工具，支持多语种听写练习，提升听力与拼写能力</div>
+                        <a href="https://www.fluentdictation.com/" target="_blank" class="card-info-link">点击访问FluentDictation</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🌐</div>
+                    <div class="card-info">
+                        <div class="card-info-title">Notolang</div>
+                        <div class="card-info-desc">语言学习工具，支持多语种记忆卡片、复习规划，提升记忆效率</div>
+                        <a href="https://www.notolang.com/" target="_blank" class="card-info-link">点击访问Notolang</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-icon">🧰</div>
+                    <div class="card-info">
+                        <div class="card-info-title">Language Tools Directory</div>
+                        <div class="card-info-desc">语言工具导航平台，筛选优质学习工具，覆盖听力/口语/读写全场景</div>
+                        <a href="https://languagetools.directory/" target="_blank" class="card-info-link">点击访问Language Tools Directory</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 关于本站 -->
+        <h2 class="first-level-title">关于本站</h2>
+        <div class="content-section" id="site-intro">
+            <div class="content-title">网站说明</div>
+            <div class="site-desc">
+                既然你已经发现这个Charlee 小站啦，说明你一定是个对自己有追求的人，希望这个上面的内容能够对现阶段的你，或者未来的你有帮助。如果你有什么建议，或者有更多有用的工具，请在留言板留言！
+                <br><br>
+                本站推荐的很多网页需要凭借梯子才能进入，希望谅解！
+            </div>
+        </div>
+
+        <div class="content-section" id="message">
+            <div class="content-title">留言板</div>
+            <div class="public-editable" contenteditable="true">
+                ### 留言格式参考
